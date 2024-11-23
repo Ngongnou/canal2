@@ -1,0 +1,88 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Devanagari:wght@100;200;300;400;500;600;700&family=IBM+Plex+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Devanagari:wght@100;200;300;400;500;600;700&family=IBM+Plex+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Hebrew:wght@100;200;300;400;500;600;700&display=swap');
+:root {
+    --primary-color: #618264;
+    --secondary-color: #79AC78;
+    --font-size: 16px;
+    --font-family: "IBM Plex Sans Devanagari", serif;
+    --font-family1: "Inter";
+    --font-family2: "IBM Plex Sans Hebrew", sans-serif;
+    --neutral: #ffffff;
+}
+* {
+    margin: 0;
+    padding: 0;
+    font-size: 10px;
+    list-style: none;
+}
+.pic {
+    margin-left: 65px;
+}
+img {
+    width: 110px;
+    height: 110px;
+}
+.nav {
+    display: flex;
+    justify-content: space-between;
+}
+.navbar {
+    margin-top: 37px;
+    width: 647px;
+    height: 35px;
+}
+ul {
+    display: flex;
+    justify-content: space-around;
+}
+ul li {
+    font-family: var(--font-family1);
+    font-size: 24px;
+}
+button {
+    width: 203px;
+    height: 69px;
+    margin-top: 20px;
+    margin-right: 60px;
+    border-radius: 35px;
+    background-color: #618264;
+    border: none;
+    color: white;
+    font-size: 20px;
+}
+.actu {
+    width: 841.64px;
+    height: 622px;
+    margin-top: 50px;
+    margin-left: 64px;
+}
+.head {
+    background-image: url(./Fight.jpeg);
+    color: #ffffff;
+    width: 840.64px;
+    height: 622px;
+    border-radius: 20px;
+    display: flex;
+}
+.head .side{
+    width: 15px;
+    height: 142px;
+    margin-top: 441px;
+    margin-left: 65px;
+    background-color: var(--primary-color);
+    border-radius: 23px;
+    
+}
+.head p {
+    width: 674px;
+    height: 101px;
+    margin-top: 441px;
+    margin-left: 30px;
+}
+.head p b {
+    font-family: var(--font-family2);
+    font-weight: 700;
+    font-size: 3.5rem;
+}
+
