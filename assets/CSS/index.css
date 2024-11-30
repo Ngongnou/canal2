@@ -1,6 +1,13 @@
 @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Devanagari:wght@100;200;300;400;500;600;700&family=IBM+Plex+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Devanagari:wght@100;200;300;400;500;600;700&family=IBM+Plex+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Hebrew:wght@100;200;300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Devanagari:wght@100;200;300;400;500;600;700&family=IBM+Plex+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+    font-size: 10px;
+    list-style: none;
+}
 :root {
     --primary-color: #618264;
     --secondary-color: #79AC78;
@@ -9,17 +16,13 @@
     --font-family1: "Inter";
     --font-family2: "IBM Plex Sans Hebrew", sans-serif;
     --neutral: #ffffff;
-}
-* {
-    margin: 0;
-    padding: 0;
-    font-size: 10px;
-    list-style: none;
+    --font-family3: "Open Sans", sans-serif;
 }
 .pic {
     margin-left: 65px;
 }
 img {
+    display: flex;
     width: 110px;
     height: 110px;
 }
@@ -36,9 +39,26 @@ ul {
     display: flex;
     justify-content: space-around;
 }
-ul li {
+ul li a {
     font-family: var(--font-family1);
     font-size: 24px;
+    text-decoration: none;
+    position: relative;
+    color: black;
+}
+a.active {
+    color: var(--secondary-color);
+}
+.active::after {
+    content: ""; /* Pseudo-élément vide */
+    position: absolute;
+    bottom: -5px; /* Ajustez la distance par rapport au texte */
+    left: 40%; /* Commence au milieu */
+    transform: translateX(-50%); /* Centre horizontalement */
+    width: 75%; /* Largeur du soulignement (50% du lien) */
+    height: 2px; /* Épaisseur du soulignement */
+    background-color: var(--secondary-color); /* Couleur du soulignement */
+    transition: width 0.3s ease-in-out; /* Animation pour effet au survol */
 }
 button {
     width: 203px;
@@ -51,24 +71,43 @@ button {
     color: white;
     font-size: 20px;
 }
+.header {
+    display: flex;
+    gap: 4rem;
+}
 .actu {
+    flex: 1;
     width: 841.64px;
     height: 622px;
-    margin-top: 50px;
+    margin-top: 30px;
     margin-left: 64px;
+    
 }
 .head {
-    background-image: linear-gradient(10.82deg, rgba(0, 0, 0, 0.95) 0%, rgba(0, 0, 0, 0) 51.65%), url(../IMG/Fight.jpeg);
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: -50px 0  ;
+    position: relative;
+    overflow: hidden;
     color: #ffffff;
-    width: 840.64px;
+    width: 841.64px;
     height: 622px;
-    border-radius: 20px;
     display: flex;
 }
+.head img {
+    width: 840.64px;
+    border-radius: 20px;
+    height: 622px;
+    object-fit: cover;
+}
+.gradient {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(10.82deg, rgba(0, 0, 0, 0.95) 1.55%, rgba(0, 0, 0, 0) 51.18%);
+
+}
 .head .side{
+    position: absolute;
     width: 15px;
     height: 142px;
     margin-top: 441px;
@@ -78,14 +117,254 @@ button {
 
 }
 .head .text {
+    position: absolute;
     width: 674px;
     height: 101px;
-    margin-top: 441px;
-    margin-left: 30px;
+    margin-top: 433px;
+    margin-left: 80px;
+    font-family: var(--font-family2);
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
 }
 .head .text b {
-    font-family: var(--font-family2);
     font-weight: 700;
     font-size: 3.5rem;
 }
+.head .text .date {
+    font-size: 20px;
+    line-height: 26px;
+}
+.side1 {
+    flex: 1;
+    width: 453px;
+    height: 628px;
+    margin-top: 30px;
+    padding-bottom: 50px;
+}
+.side1 .title {
+    display: flex;
+    font-family: var(--font-family2);
+}
+.side1 .title .sign {
+    background-color: var(--primary-color);
+    width: 13px;
+    height: 50px;
+    margin-top: 0;
+    margin-left: 20px;
+    border-radius: 20px;
+}
+.side1 .title p {
+    width: 199px;
+    height: 23px;
+    margin-top: 10px;
+    margin-left: 10px;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 26px;
+}
+.primary {
+    margin-right: 25px;
+    display: flex;
+    gap: 2rem;
+    font-family: var(--font-family2);
+    padding-bottom: 20px;
+}
+.primary img {
+    flex: 1;
+    width: 235px;
+    height: 160px;
+    margin-top: 18px;
+    margin-left: 20px;
+    border-radius: 10px;
 
+}
+.primary .txt {
+    flex: 1;
+    width: 200px;
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+}
+.primary .txt h1 {
+    width: 189px;
+    height: 52px;
+    margin-top: 18px;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 26px;
+    padding-right: 25px;
+    font-family: var(--font-family2);
+}
+.primary .txt p {
+    width: 200px;
+    font-weight: 400;
+    font-size: 14px;
+    font-family: var(--font-family3);
+}
+.center {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    padding: 0rem 2rem;
+    margin-top: 4rem;
+}
+.center_containers  img {
+    height: 35rem;
+    width: 38rem;
+    border-radius: 1rem;
+}
+.center_containers  h1 {
+    font-weight: 400;
+    font-style: italic;
+    font-size: 1.3rem;
+    color: var(--secondary-color);
+
+}
+.center_containers > p {
+    font-weight: 600;
+    font-size: 2rem;
+}
+.video {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 10rem;
+    gap: 2rem;
+}
+.video  h1 {
+  font-weight: 600;
+  color: var(--primary-text-color);
+  font-size: 4.8rem;
+}
+.programmes {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+.programmes_section1 {
+    display: flex;
+}
+.programmes  h1 {
+    font-weight: 600;
+    color: var(--primary-text-color);
+    font-size: 4.8rem;
+}
+.video  iframe {
+    height: 62.3rem;
+    width: 120rem;
+    border-radius: 2rem;
+}
+.programmes_section1 img {
+    height: 37.1rem;
+    width: 54.8rem;
+    border-radius: 2rem;
+    flex: 1;
+    margin-right: 3rem;
+}
+.programmes_section1__text {
+    flex: 1;
+    font-size: 2rem;
+    font-weight: 100;
+}
+.programmes_section1__text  h1,
+p {
+  color: var(--secondary-color);
+}
+.logo {
+  margin-top: 3rem;
+}
+.logo img {
+  margin: 0.4rem 2rem 0rem 0rem;
+}
+.md {
+  margin-left: 10rem;
+}
+.programmes_section2 {
+  margin-top: 10rem;
+  display: flex;
+  gap: 40px;
+}
+.programmes_section2 img {
+  height: 37.1rem;
+  width: 54.8rem;
+  border-radius: 2rem;
+  flex: 1;
+}
+.programmes_section2__text h1,
+p {
+  color: var(--secondary-color);
+}
+.programmes_section2__text {
+  flex: 1;
+  font-size: 2rem;
+  font-weight: 100;
+}
+.pub-section {
+  display: flex;
+
+  margin-top: 20rem;
+}
+.pub-section_text > div {
+  height: 6rem;
+  width: 1.3rem;
+  margin-left: 3.3rem;
+  background-color: var(--secondary-color);
+}
+.pub-section_text {
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+.pub-section_text > h1 {
+  color: var(--secondary-color);
+  font-size: 2.8rem;
+  font-weight: 600;
+  writing-mode: vertical-lr;
+  transform: rotate(180deg);
+}
+
+.pub-sectoion_image > img {
+  height: 57.9rem;
+  width: 125.8rem;
+}
+.end-main-section {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 10rem;
+}
+.end-main-section__image {
+  height: 38rem;
+  width: 34rem;
+  border-radius: 1rem;
+}
+.end-main-section_container > h3 {
+  font-style: italic;
+  font-weight: 400;
+  color: var(--secondary-color);
+  font-size: 1.2rem;
+}
+.end-main-section_container > p {
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: var(--primary-text-color);
+}
+footer {
+  background-color: var(--secondary-color);
+  width: 100%;
+  height: 42.6rem;
+  margin-top: 8rem;
+  align-content: center;
+  justify-items: center;
+}
+.footer-main-logo {
+  height: 21.3rem;
+  width: 37.2rem;
+}
+.social-medias-logo > img {
+  width: 5.4rem;
+  height: 5.3rem;
+  padding: 2rem;
+}
